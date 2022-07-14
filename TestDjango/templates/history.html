@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Shortening history</h2>
+
+{% if user.is_authenticated %}
+    {% if shortened_links %}
+    <ul>
+
+      {% for link in shortened_links %}
+      <li>
+        {{ link }}
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>There are no shortened URLs yet.</p>
+    {% endif %}
+{% else %}
+    <p>Login to view shortened URL list</p>
+{% endif %}
+{% endblock %}
